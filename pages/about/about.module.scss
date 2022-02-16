@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.skillsBlock {
+  flex-basis: 150px;
+
+  .skillsTitle {
+    font-weight: 600;
+  }
+
+  .skillsList {
+    padding-top: 20px;
+    list-style: none;
+
+    .skill {
+      font-size: 18px;
+      user-select: none;
+      height: 50px;
+    }
+  }
+}
+
+.about {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+
+  .main {
+    .languagesList {
+      list-style: inside;
+    }
+  }
+
+  .link {
+    text-decoration: underline;
+  }
+}

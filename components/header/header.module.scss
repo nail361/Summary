@@ -1,0 +1,33 @@
+@import "../../styles/variables.scss";
+
+.header {
+  width: 100%;
+  height: $header-height;
+  background-color: $main-color;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  color: white;
+  padding: 10px;
+}
+
+.link:not(:last-child) {
+  margin-right: 18px;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 15px;
+    top: 7px;
+    right: -10px;
+    background-color: white;
+  }
+}
+
+.activeLink {
+  text-decoration: underline;
+}
