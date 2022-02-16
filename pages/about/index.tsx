@@ -25,7 +25,6 @@ const About: FunctionComponent<AboutProps> = (props) => {
     <>
       <Head>
         <title>{t("title")}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div className={classes.wrapper}>
         <div className={classes.skillsBlock}>
@@ -117,7 +116,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const locale = context.locale!;
 
   const responseData = await fetch(
-    "https://resume-d59bc-default-rtdb.firebaseio.com/skills.json"
+    "https://summary-cd1a9-default-rtdb.europe-west1.firebasedatabase.app/skills.json"
   )
     .then((response) => response.json())
     .catch(() => []);
