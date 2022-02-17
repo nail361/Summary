@@ -7,6 +7,8 @@ import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material/";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import classes from "./javascript.module.scss";
+import Closure from "../../components/javascript/closure/closure";
+import EventLoop from "../../components/javascript/eventloop/eventloop";
 
 const JS: FunctionComponent = () => {
   const [expanded, setExpanded] = useState("");
@@ -24,6 +26,14 @@ const JS: FunctionComponent = () => {
     {
       title: "SOLID",
       summary: <Solid />,
+    },
+    {
+      title: "Замыкание (closure)",
+      summary: <Closure />,
+    },
+    {
+      title: "Цикл событий (event loop)",
+      summary: <EventLoop />,
     },
   ];
 
@@ -49,6 +59,7 @@ const JS: FunctionComponent = () => {
                 id={`${component.title}-header`}
                 aria-controls={`${component.title}-content`}
                 expandIcon={<ExpandMoreIcon />}
+                className={classes.accorionTitle}
               >
                 {component.title}
               </AccordionSummary>

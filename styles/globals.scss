@@ -27,3 +27,34 @@ code {
   padding: 10px;
   border: 2px solid black;
 }
+
+code {
+  margin: 15px 0;
+
+  &.code-good {
+    background-color: #baffba;
+  }
+
+  &.code-wrong {
+    background-color: #ffbaba;
+  }
+}
+
+ul {
+  &.clear {
+    list-style: none;
+    > li {
+      margin-left: 20px;
+    }
+  }
+
+  &.divided {
+    & > li:not(:last-child)::after {
+      content: "";
+      display: block;
+      margin: 20px 0;
+      width: 100%;
+      border-top: 2px dashed rgb(50, 50, 50);
+    }
+  }
+}

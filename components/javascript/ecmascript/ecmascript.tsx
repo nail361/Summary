@@ -47,13 +47,46 @@ const EcmaScript: FunctionComponent = () => {
     setCounter(counter.next().value!);
   };
 
+  //Promise
+  const [promiseResponse, setPromiseResponse] = useState("");
+
+  const onRunPromise = () => {
+    setPromiseResponse("");
+
+    const promise = new Promise<string>((resolve) => {
+      setTimeout(() => {
+        resolve("Прошла 1 секунда");
+      }, 1000);
+    });
+
+    promise.then((response) => {
+      setPromiseResponse(response);
+    });
+  };
+
+  //Async Await
+  const [asyncResponse, setAsyncResponse] = useState("");
+
+  const onRunAsyncAwaite = async () => {
+    const waite = async (): Promise<string> => {
+      return new Promise((resolve) => {
+        setTimeout(() => resolve("Прошла 1 секунда"), 1000);
+      });
+    };
+
+    const response = await waite();
+    setAsyncResponse(response);
+  };
+
   return (
     <>
       <p>Рассмотрим основные фишки последних версий ECMAScript:</p>
-      <ul>
+      <ul className="clear divided">
         <li>
-          <p>let, const, var</p>
-          <ul>
+          <p>
+            <b>let, const, var</b>
+          </p>
+          <ul className="clear">
             <li>
               <p>var - всплывает</p>
               <code>
@@ -100,8 +133,10 @@ const EcmaScript: FunctionComponent = () => {
           </ul>
         </li>
         <li>
-          <p>Стрелочная функция</p>
-          <ul>
+          <p>
+            <b>Стрелочная функция</b>
+          </p>
+          <ul className="clear">
             <li>
               <p>Проще записываются, сохраняется контекст this</p>
               <code>
@@ -128,7 +163,7 @@ const EcmaScript: FunctionComponent = () => {
         </li>
         <li>
           <p>Rest и Spread</p>
-          <ul>
+          <ul className="clear">
             <li>
               <p>Spread - разделение коллекций на отдельные элементы.</p>
               <code>
@@ -171,7 +206,7 @@ const EcmaScript: FunctionComponent = () => {
         </li>
         <li>
           <p>Коллекции Set, Map, WeackMap и WeackSet</p>
-          <ul>
+          <ul className="clear">
             <li>
               <p>Map - коллекция записей вида ключ -&gt; значение</p>
               <p>
@@ -223,7 +258,58 @@ const EcmaScript: FunctionComponent = () => {
           </Button>
         </li>
         <li>
-          <p>Async Awaite</p>
+          <p>Async Await</p>
+          <p>
+            Синтаксис для работы с промисами (синтаксический сахар). Промисы в
+            свою очередь это отложенные и асинхронные вычисления.
+          </p>
+          <p>С async await код становится более читаемым.</p>
+          <ul className="clear">
+            <li>
+              <p>Promise - старый вариант:</p>
+              <code>
+                <p>
+                  const promise = new Promise((resolve, reject) =&gt; &#123;
+                </p>
+                <p>
+                  &#160;setTimeout(() =&gt; resolve(&apos;Прошла 1
+                  секунда&apos;), 1000);
+                </p>
+                <p>&#125;</p>
+                <p>promise.then((response) =&gt; &#123;</p>
+                <p>&#160;console.log(response); // {promiseResponse}</p>
+                <p>&#125;);</p>
+              </code>
+              <Button variant="contained" onClick={onRunPromise}>
+                Запустить промис
+              </Button>
+            </li>
+            <li>
+              <p>async await - новый вариант:</p>
+              <code>
+                <p>async function waite() &#123;</p>
+                <p>&#160;return new Promise((resolve) =&gt; &#123;</p>
+                <p>
+                  &#160;&#160;setTimeout(() =&gt; &apos;Прошла 1 секунда&apos;,
+                  1000);
+                </p>
+                <p>&#160;&#125;);</p>
+                <p>&#125;;</p>
+                <p>
+                  const response = await waite(); // ожидает выполнение промиса
+                </p>
+                <p>console.log(response); // {asyncResponse}</p>
+              </code>
+              <Button variant="contained" onClick={onRunAsyncAwaite}>
+                Запустить async await
+              </Button>
+            </li>
+            <p>
+              Преимущество async await становится заметно при выполнении
+              последовательной цепочки асинхронных операций, избавляя код от
+              вложенности.
+            </p>
+          </ul>
         </li>
       </ul>
     </>

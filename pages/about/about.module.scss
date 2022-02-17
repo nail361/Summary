@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .wrapper {
   display: flex;
   flex-direction: row-reverse;
@@ -29,6 +31,10 @@
   margin-right: 20px;
 
   .main {
+    background-color: $very-light-color;
+    border-radius: 20px;
+    padding: 20px;
+
     .languagesList {
       list-style: inside;
     }

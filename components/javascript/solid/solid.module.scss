@@ -1,0 +1,12 @@
+.iconBad {
+  color: red;
+}
+
+.iconGood {
+  color: green;
+}
+
+.iconBad,
+.iconGood {
+  transform: translateY(5px);
+}
