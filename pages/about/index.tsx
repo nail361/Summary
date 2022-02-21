@@ -67,31 +67,9 @@ const About: FunctionComponent<AboutProps> = (props) => {
             <h1>{t("about")}</h1>
             <div>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
-                modi natus iusto quo! Veniam corporis eaque error neque iste
-                odio ad nemo! Modi dolore doloribus distinctio dolor ipsum
-                tempore temporibus magni nobis repellendus deserunt totam maxime
-                dolores ipsa assumenda libero odio ea aliquam aspernatur, harum
-                ipsam accusamus nesciunt deleniti. Explicabo, voluptas
-                perspiciatis maxime rem dignissimos sit quis placeat adipisci,
-                fuga natus dolore modi aut, deserunt aperiam iste expedita
-                praesentium temporibus ex culpa. Cupiditate fugiat adipisci
-                illum explicabo, earum magni eveniet mollitia tempore
-                repudiandae deleniti possimus nihil provident tempora ea
-                perspiciatis error nulla eum cum, rerum dolore debitis suscipit?
-                Culpa harum veniam, perspiciatis velit optio repudiandae
-                voluptates? Quae quaerat quo voluptates, fugiat, perspiciatis
-                sit facilis totam veniam laboriosam nostrum facere placeat,
-                repellat excepturi? Id minima error optio alias laboriosam,
-                dolorem ad obcaecati minus voluptatem cum impedit saepe dicta
-                qui assumenda mollitia? Repudiandae ratione recusandae illum et
-                corporis distinctio eligendi vero architecto laboriosam dolore.
-                Cupiditate ut error sunt cumque earum dignissimos placeat soluta
-                quo dolorum in exercitationem, facere provident quae laudantium
-                eveniet repellat nemo! Pariatur assumenda quae a, praesentium
-                optio dolores natus beatae necessitatibus odio voluptatem
-                veritatis ducimus facilis vel incidunt illo, iusto perferendis.
-                Debitis, quas eius et illo molestiae consequuntur id.
+                Являюсь Frontend разработчиком, претендую на уровень Senior.
+                Начинал свой путь с ActionScript 3.0 и разрабатывал flash игры.
+                После перешёл на JavaScript.
               </p>
             </div>
           </div>

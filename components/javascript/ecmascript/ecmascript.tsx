@@ -7,39 +7,63 @@ function* counterGenerator() {
 }
 const counter = counterGenerator();
 
+//Spread
+const boys = ["Миша", "Максим"];
+const girls = ["Таня", "Маша"];
+const all = [...boys, ...girls];
+
+//Rest
+const summ = (...rest: number[]) => {
+  return rest.reduce((storedSumm, num) => storedSumm + num, 0);
+};
+const summed = summ(1, 2, 3, 4, 5);
+
+//Destruct
+const car = { type: "седан", price: 100 };
+const { type, price: cost } = car;
+
+//Template literals
+const name = "Денис";
+const greeting = `Привет ${name}`;
+
+//Map
+const map = new Map();
+map.set("name", "string");
+map.set(1, "number");
+map.set(false, "boolean");
+
+//Set
+const set = new Set();
+set.add(map.get("name"));
+set.add(map.get(1));
+set.add(map.get(false));
+set.add(map.get("name"));
+
+//Destruct assign
+let a = 0;
+let b = 0;
+[a, b] = [1, 2];
+let c = 1;
+let d = 2;
+[c, d] = [d, c];
+let e = 0;
+let f = 0;
+let rest: number[];
+[e, f, ...rest] = [1, 2, 3, 4, 5];
+let g = 0;
+let h = 0;
+({ g, h } = { g: 1, h: 2 });
+
+//Decorators
+function welcome(fn: any): string {
+  return "Hello! " + fn();
+}
+
+function initProgramm() {
+  return "init programm";
+}
+
 const EcmaScript: FunctionComponent = () => {
-  //Spread
-  const boys = ["Миша", "Максим"];
-  const girls = ["Таня", "Маша"];
-  const all = [...boys, ...girls];
-
-  //Rest
-  const summ = (...rest: number[]) => {
-    return rest.reduce((storedSumm, num) => storedSumm + num, 0);
-  };
-  const summed = summ(1, 2, 3, 4, 5);
-
-  //Destruct
-  const car = { type: "седан", price: 100 };
-  const { type, price: cost } = car;
-
-  //Template literals
-  const name = "Денис";
-  const greeting = `Привет ${name}`;
-
-  //Map
-  const map = new Map();
-  map.set("name", "string");
-  map.set(1, "number");
-  map.set(false, "boolean");
-
-  //Set
-  const set = new Set();
-  set.add(map.get("name"));
-  set.add(map.get(1));
-  set.add(map.get(false));
-  set.add(map.get("name"));
-
   //Generators
   const [counterValue, setCounter] = useState(0);
 
@@ -141,7 +165,7 @@ const EcmaScript: FunctionComponent = () => {
               <p>Проще записываются, сохраняется контекст this</p>
               <code>
                 <p>this.timer = 0;</p>
-                <p>setInterval( () =&gt; &#123;this.timer++;&#125;, 1000);</p>
+                <p>setInterval( () =&gt; this.timer++, 1000);</p>
               </code>
             </li>
             <li>
@@ -162,7 +186,9 @@ const EcmaScript: FunctionComponent = () => {
           </ul>
         </li>
         <li>
-          <p>Rest и Spread</p>
+          <p>
+            <b>Rest и Spread</b>
+          </p>
           <ul className="clear">
             <li>
               <p>Spread - разделение коллекций на отдельные элементы.</p>
@@ -179,7 +205,7 @@ const EcmaScript: FunctionComponent = () => {
               <code>
                 <p>const summ = (...rest) =&gt; &#123;</p>
                 <p>
-                  &#160; return rest.reduce((storedSumm, num) =&gt; storedSumm +
+                  &#160;return rest.reduce((storedSumm, num) =&gt; storedSumm +
                   num, 0);{" "}
                 </p>
                 <p>&#125;</p>
@@ -189,7 +215,9 @@ const EcmaScript: FunctionComponent = () => {
           </ul>
         </li>
         <li>
-          <p>Деструктуризация</p>
+          <p>
+            <b>Деструктуризация</b>
+          </p>
           <code>
             <p>const car = &#123; type: &apos;седан&apos;, price: 100 &#125;</p>
             <p>const &#123; type, price: cost &#125; = car;</p>
@@ -198,14 +226,39 @@ const EcmaScript: FunctionComponent = () => {
           </code>
         </li>
         <li>
-          <p>Шаблонные литералы</p>
+          <p>
+            <b>Деструктурирующее присваивание</b>
+          </p>
+          <code>
+            <p>let a, b, rest;</p>
+            <p>[a, b] = [1, 2];</p>
+            <p>console.log(a); // {a}</p>
+            <p>console.log(b); // {b}</p>
+            <p>[a, b] = [b, a];</p>
+            <p>console.log(a); // {c}</p>
+            <p>console.log(b); // {d}</p>
+            <p>[a, b, ...rest] = [1, 2, 3, 4, 5];</p>
+            <p>console.log(a); // {e}</p>
+            <p>console.log(b); // {f}</p>
+            <p>console.log(rest); // {rest.join(", ")}</p>
+            <p>(&#123;a, b&#125; = &#123;a:1, b:2&#125;);</p>
+            <p>console.log(a); // {g}</p>
+            <p>console.log(b); // {h}</p>
+          </code>
+        </li>
+        <li>
+          <p>
+            <b>Шаблонные литералы</b>
+          </p>
           <code>
             <p>const name = &apos;Денис&apos;;</p>
             <p>console.log(`Привет $&#123;name&#125;`); // {greeting}</p>
           </code>
         </li>
         <li>
-          <p>Коллекции Set, Map, WeackMap и WeackSet</p>
+          <p>
+            <b>Коллекции Set, Map, WeackMap и WeackSet</b>
+          </p>
           <ul className="clear">
             <li>
               <p>Map - коллекция записей вида ключ -&gt; значение</p>
@@ -242,9 +295,11 @@ const EcmaScript: FunctionComponent = () => {
         </li>
         <li>
           <p>
-            Генераторы - новый вид функций в JS. При выполнении могут
-            приостановить своё выполнение, вернуть промежуточное значение и
-            продолжить выполнение далее.
+            <b>Генераторы</b>
+          </p>
+          <p>
+            Новый вид функций в JS. Умеют приостановить своё выполнение, вернуть
+            промежуточное значение и продолжить выполнение далее.
           </p>
           <code>
             <p>function* counterGenerator() &#123;</p>
@@ -258,7 +313,9 @@ const EcmaScript: FunctionComponent = () => {
           </Button>
         </li>
         <li>
-          <p>Async Await</p>
+          <p>
+            <b>Async Await</b>
+          </p>
           <p>
             Синтаксис для работы с промисами (синтаксический сахар). Промисы в
             свою очередь это отложенные и асинхронные вычисления.
@@ -310,6 +367,48 @@ const EcmaScript: FunctionComponent = () => {
               вложенности.
             </p>
           </ul>
+        </li>
+        <li>
+          <p>
+            <b>Декораторы</b>
+          </p>
+          <p>
+            Cредство, которое позволяет обернуть одну функцию другой и расширить
+            ее возможности. По сути это паттерн &apos;Декоратор&apos;.
+          </p>
+          <p>
+            В простом виде декоратор выглядит как функция, которая принимает в
+            себя другую функцию и выполняет её внутри себя, перед этим выполняя
+            какую-то логику.
+          </p>
+          <code>
+            <p>function welcome(fn) &#123;</p>
+            <p>&#160;return &apos;Hello! &apos; + fn();</p>
+            <p>&#125;</p>
+            <p>&#160;</p>
+            <p>function init() &#123;</p>
+            <p>&#160;return &apos;init programm&apos;;</p>
+            <p>&#125;</p>
+            <p>&#160;</p>
+            <p>console.log(welcome(init)); // {welcome(initProgramm)}</p>
+          </code>
+          <p>
+            Существует также вариант использования декоратора с помощью спец.
+            символа @. На текущий момент
+          </p>
+          <code>
+            <p>function welcome(fn) &#123;</p>
+            <p>&#160;return &apos;Hello! &apos; + fn();</p>
+            <p>&#125;</p>
+            <p>&#160;</p>
+            <p>@log</p>
+            <p>function init() &#123;</p>
+            <p>&#160;return &apos;init programm&apos;;</p>
+            <p>&#125;</p>
+            <p>&#160;</p>
+            <p>console.log(init()); // Hello! init programm</p>
+          </code>
+          <p>Можно использовать композицию декораторов.</p>
         </li>
       </ul>
     </>

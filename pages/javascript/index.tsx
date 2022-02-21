@@ -9,6 +9,8 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import classes from "./javascript.module.scss";
 import Closure from "../../components/javascript/closure/closure";
 import EventLoop from "../../components/javascript/eventloop/eventloop";
+import More from "../../components/javascript/more/more";
+import Sorting from "../../components/javascript/sorting/sorting";
 
 const JS: FunctionComponent = () => {
   const [expanded, setExpanded] = useState("");
@@ -21,19 +23,27 @@ const JS: FunctionComponent = () => {
   const components = [
     {
       title: "ECMAScript",
-      summary: <EcmaScript />,
+      component: <EcmaScript />,
     },
     {
       title: "SOLID",
-      summary: <Solid />,
+      component: <Solid />,
     },
     {
       title: "Замыкание (closure)",
-      summary: <Closure />,
+      component: <Closure />,
     },
     {
       title: "Цикл событий (event loop)",
-      summary: <EventLoop />,
+      component: <EventLoop />,
+    },
+    {
+      title: "Разное",
+      component: <More />,
+    },
+    {
+      title: "Сортировка",
+      component: <Sorting />,
     },
   ];
 
@@ -63,7 +73,7 @@ const JS: FunctionComponent = () => {
               >
                 {component.title}
               </AccordionSummary>
-              <AccordionDetails>{component.summary}</AccordionDetails>
+              <AccordionDetails>{component.component}</AccordionDetails>
             </Accordion>
           ))}
         </div>
