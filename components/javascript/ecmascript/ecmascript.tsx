@@ -13,7 +13,7 @@ const girls = ["Таня", "Маша"];
 const all = [...boys, ...girls];
 
 //Rest
-const summ = (...rest: number[]) => {
+export const summ = (...rest: number[]) => {
   return rest.reduce((storedSumm, num) => storedSumm + num, 0);
 };
 const summed = summ(1, 2, 3, 4, 5);
@@ -337,7 +337,11 @@ const EcmaScript: FunctionComponent = () => {
                 <p>&#160;console.log(response); // {promiseResponse}</p>
                 <p>&#125;);</p>
               </code>
-              <Button variant="contained" onClick={onRunPromise}>
+              <Button
+                data-testid="promise-btn"
+                variant="contained"
+                onClick={onRunPromise}
+              >
                 Запустить промис
               </Button>
             </li>
