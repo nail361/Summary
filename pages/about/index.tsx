@@ -32,7 +32,11 @@ const About: FunctionComponent<AboutProps> = (props) => {
           <ul className={classes.skillsList}>
             {skills.map((skill: Skill) => {
               return (
-                <li key={skill.title} className={classes.skill}>
+                <li
+                  data-testid="skill"
+                  key={skill.title}
+                  className={classes.skill}
+                >
                   <span>{skill.title}</span>
                   <Skills exp={skill.exp} />
                 </li>
