@@ -49,9 +49,9 @@ const EventLoop: FunctionComponent = () => {
         <p>console.log(1);</p>
         <p>setTimeout(()=&gt;console.log(2), 0);</p>
         <p>console.log(3);</p>
-        <p>// 1</p>
-        <p>// 3</p>
-        <p>// 2</p>
+        <p>&#47;&#47; 1</p>
+        <p>&#47;&#47; 3</p>
+        <p>&#47;&#47; 2</p>
       </code>
       <p>
         Вся суть в том, что setTimeout попадает в webApi секцию, и только потом
