@@ -2,6 +2,7 @@ import { FunctionComponent, SyntheticEvent, useState } from "react";
 import Head from "next/head";
 import EcmaScript from "../../components/javascript/ecmascript/ecmascript";
 import Solid from "../../components/javascript/solid/solid";
+import KissDryEtc from "../../components/javascript/kissdryetc/kissdryetc";
 
 import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material/";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -28,6 +29,10 @@ const JS: FunctionComponent = () => {
     {
       title: "SOLID",
       component: <Solid />,
+    },
+    {
+      title: "Принципы разработки: KISS, DRY, YAGNI, BDUF, APO",
+      component: <KissDryEtc />,
     },
     {
       title: "Замыкание (closure)",
