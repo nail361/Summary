@@ -97,11 +97,13 @@ const About: FunctionComponent<AboutProps> = (props) => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const locale = context.locale!;
 
-  const responseData = await fetch(
+  let responseData = await fetch(
     "https://summary-cd1a9-default-rtdb.europe-west1.firebasedatabase.app/skills.json"
   )
     .then((response) => response.json())
     .catch(() => []);
+
+  if (responseData.error) responseData = [];
 
   return {
     props: {
